@@ -1,5 +1,13 @@
 package structure
 
+// Shape : 图形，多态，只要实现了这两个方法的类都实现了 Shape 接口
+type Shape interface {
+	Area() float64
+	Perimeter() float64
+}
+
+/* ---------------------------------------------------- */
+
 // Rectangle : 矩形
 type Rectangle struct {
 	Width  float64
