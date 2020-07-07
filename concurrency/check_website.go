@@ -16,12 +16,12 @@ func CheckWebsites(wc WebsiteChecker, urls []string) map[string]bool {
 	for _, url := range urls {
 		go func(u string) {
 			// 引入 channel 避免 race condition
-			resultChannel <- result{u, wc(u)}
+			resultChannel <- result{u, wc(u)} // send statement
 		}(url)
 	}
 
 	for i := 0; i < len(urls); i++ {
-		result := <-resultChannel
+		result := <-resultChannel // receive expression
 		results[result.string] = result.bool
 	}
 
