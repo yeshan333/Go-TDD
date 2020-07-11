@@ -5,7 +5,9 @@ import (
 	"unicode/utf8"
 )
 
-func main() {
+// 感受 byte 和 rune 的差异
+
+func enjoyByteRune() {
 
 	var str = "hello 你好"
 
@@ -22,4 +24,20 @@ func main() {
 
 	//[]rune(str) type: []int32, str type: string
 	fmt.Printf("[]rune(str) type: %T, str type: %T", []rune(str), str)
+
+	fmt.Println()
+	/* ---------------------------- 遍历 ---------------------------------- */
+	f := "Golang 你好"
+	fmt.Printf("type f: %T\n", f)
+
+	// Golang 你好
+	for _, value := range f {
+		fmt.Printf("%c", value)
+	}
+
+	fmt.Println()
+	// Golang ä½ å¥½
+	for _, v := range []byte(f) {
+		fmt.Printf("%c", v)
+	}
 }

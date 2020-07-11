@@ -8,6 +8,6 @@ import (
 
 func main() {
 	fmt.Println("Using package")
-
+	// sayHello() // go run main.go hello.go
 	mypackage.A()
 }
